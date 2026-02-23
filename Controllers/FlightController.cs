@@ -13,9 +13,7 @@ namespace Flight.Controllers
             context = ctx;
         }
 
-        // ================================
         // INDEX - View All Flights
-        // ================================
         public IActionResult Index()
         {
             var flights = context.Flights
@@ -25,9 +23,7 @@ namespace Flight.Controllers
             return View(flights);
         }
 
-        // ================================
         // ADD - GET
-        // ================================
         [HttpGet]
         public IActionResult Add()
         {
@@ -35,9 +31,8 @@ namespace Flight.Controllers
             return View(new FlightModel());
         }
 
-        // ================================
         // EDIT - GET (Using Slug)
-        // ================================
+        
         [HttpGet]
         public IActionResult Edit(string id)
         {
@@ -52,9 +47,8 @@ namespace Flight.Controllers
             return View(flight);
         }
 
-        // ================================
         // ADD + EDIT - POST
-        // ================================
+        
         [HttpPost]
         public IActionResult Edit(FlightModel flight)
         {
@@ -73,9 +67,7 @@ namespace Flight.Controllers
             return View(flight.FlightId == 0 ? "Add" : "Edit", flight);
         }
 
-        // ================================
         // DELETE - GET (Using Slug)
-        // ================================
         [HttpGet]
         public IActionResult Delete(string id)
         {
@@ -89,9 +81,7 @@ namespace Flight.Controllers
             return View(flight);
         }
 
-        // ================================
         // DELETE - POST
-        // ================================
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -106,9 +96,7 @@ namespace Flight.Controllers
             return RedirectToAction("Index");
         }
 
-        // ================================
         // LOAD CITIES FOR DROPDOWN
-        // ================================
         private void LoadCities()
         {
             var cities = new List<string>
