@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Flight.Models.FlightModel>
+
+<h2>Flight List</h2>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary">Add Flight</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Flight Number</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.FlightNumber</td>
+                <td>@f.From</td>
+                <td>@f.To</td>
+                <td>@f.Date.ToString("MM/dd/yyyy")</td>
+                <td>@f.Price.ToString("C")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@f.Slug">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@f.Slug">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
