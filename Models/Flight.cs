@@ -3,9 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Flight.Models
 {
-    // ================================
     // Custom Validation Attribute
-    // ================================
     public class NotEqualTo : ValidationAttribute
     {
         private readonly string _otherProperty;
@@ -32,9 +30,7 @@ namespace Flight.Models
         }
     }
 
-    // ================================
     // Flight Model
-    // ================================
     public class FlightModel
     {
         [Key]
@@ -59,9 +55,8 @@ namespace Flight.Models
         [Range(1, 100000, ErrorMessage = "Price must be greater than 0.")]
         public decimal Price { get; set; }
 
-        // ================================
         // SAFE Slug Property (No Crash)
-        // ================================
+        
         public string Slug
         {
             get
