@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-// ✅ Enforce lowercase URLs (Assignment Requirement)
+// Enforce lowercase URLs 
 builder.Services.AddRouting(options =>
 {
     options.LowercaseUrls = true;
